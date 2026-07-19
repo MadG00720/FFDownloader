@@ -14,15 +14,8 @@ FFDownload is a desktop application that helps you download files in batch and e
 
 ## Download
 
-Choose one of the following options to download FFDownload 1.0.0:
-
-### Installer (Recommended)
-- **[FFDownload Setup](./dist/FFDownload%201.0.0.exe)** — Windows NSIS Installer
-  - Traditional installation with Start Menu shortcuts
-  - Size: Smaller installer that downloads components during setup
-
 ### Portable Executable
-- **[FFDownload Portable](./dist/FFDownload.exe)** — Standalone Executable
+- **[FFDownload Portable](https://github.com/MadG00720/FFDownloader/releases/tag/Release)**
   - No installation required
   - Run directly from any location
   - Perfect for portable drives or quick testing
