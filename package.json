@@ -1,0 +1,38 @@
+{
+  "name": "ffdownload",
+  "version": "1.0.0",
+  "description": "Browser-assisted batch downloader and archive extractor.",
+  "author": "TheMadGamer",
+  "license": "MIT",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "7zip-bin": "^5.2.0",
+    "electron-dl-manager": "^4.2.3",
+    "node-unrar-js": "^2.0.2"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.ffdownload.app",
+    "productName": "FFDownload",
+    "files": [
+      "src/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        "portable"
+      ]
+    }
+  }
+}

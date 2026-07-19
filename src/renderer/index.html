@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FFDownload</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <h1>FFDownload</h1>
+            <p>Batch downloads with browser-assisted link capture and archive extraction.</p>
+          </div>
+          <button id="chooseFolder" class="icon-button" title="Choose download folder">Folder</button>
+        </header>
+
+        <section class="input-panel">
+          <label for="links">Links</label>
+          <textarea id="links" spellcheck="false" placeholder="Paste one link per line"></textarea>
+          <div class="actions">
+            <button id="autoResolve" class="primary">Auto Resolve</button>
+            <button id="openBrowser" style="display: none;">Open in Browser</button>
+            <button id="addDirect" style="display: none;">Add Direct Links</button>
+            <button id="toggleLinkOnly" class="mode-button" aria-pressed="false">Link Only: Off</button>
+            <button id="openLinkPad">Links Pad</button>
+          </div>
+          <div id="resolverStatus" class="resolver-status">Auto resolver is idle.</div>
+          <div id="linkPad" class="link-pad" hidden>
+            <div class="link-pad-header">
+              <div>
+                <h2>Captured Links</h2>
+                <span id="linkPadCount">0 links</span>
+              </div>
+              <div class="link-pad-actions">
+                <button id="copyCapturedLinks" class="small-button">Copy</button>
+                <button id="clearCapturedLinks" class="small-button danger">Clear</button>
+                <button id="closeLinkPad" class="small-button">Close</button>
+              </div>
+            </div>
+            <textarea id="capturedLinksText" class="captured-links-text" spellcheck="false" readonly></textarea>
+          </div>
+        </section>
+
+        <section class="queue-panel">
+          <div class="queue-header">
+            <h2>Queue</h2>
+            <span id="queueSummary">0 items</span>
+          </div>
+          <div id="queueStats" class="queue-stats">
+            <span>Total speed: 0 B/s</span>
+            <span>ETA: --</span>
+          </div>
+          <div id="queue" class="queue"></div>
+        </section>
+      </section>
+
+      <aside class="settings-panel">
+        <h2>Settings</h2>
+        <div id="requirements" class="requirements"></div>
+        <div class="setting">
+          <span>Folder</span>
+          <strong id="outputDir"></strong>
+        </div>
+        <label class="setting">
+          <span>Parallel downloads</span>
+          <input id="concurrency" type="number" min="1" max="6" value="4" />
+        </label>
+        <label class="toggle">
+          <input id="extractArchives" type="checkbox" checked />
+          <span>Extract archives after download</span>
+        </label>
+        <label class="toggle">
+          <input id="deleteArchives" type="checkbox" />
+          <span>Delete archives after extraction</span>
+        </label>
+        <p class="note">Auto Resolve opens each page, blocks new-tab popups, clicks likely download controls, and adds the first real file link it can capture. Use the browser button when a site needs manual login, captcha, or a custom choice.</p>
+      </aside>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
